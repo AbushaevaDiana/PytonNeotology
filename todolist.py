@@ -16,8 +16,12 @@ while not endOfProgramm:
   elif command == "add":
     day = input("Введите дату: ")
     task = input("Введите задачу: ")
-    todo[day] = task
-    print("Задача добавленна")
+    if not (day in todo):
+      todo[day] = []
+    todo[day].append(task)
+    print("Задача", task,  "добавленна на дату: ", day)
   else:
     print("Неизвестная команда")
     break
+
+print("До свидания")
