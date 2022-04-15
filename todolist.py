@@ -12,7 +12,12 @@ while not endOfProgramm:
   if command == "help":
     print(HELP)
   elif command == "show":
-    print(todo)
+    day = input("Введите дату для отображения списка задач: ")
+    if day in todo:
+      for task in todo[day]:
+        print("- ", task)
+    else:
+      print("На эту дату нет задач")
   elif command == "add":
     day = input("Введите дату: ")
     task = input("Введите задачу: ")
