@@ -1,3 +1,4 @@
+import random
 HELP = """help - напечатать справку по программе
 add - добавить задачу в список
 show - показать все добавленные задачи
@@ -5,7 +6,7 @@ random - добавление случайной задачи на сегодн�
 """
 todo = {}
 endOfProgramm = False
-randomTask = "Записаться на курс Неотологии"
+randomTasks = ["Записаться на курс Неотологии", "Потренироваться в коде", "Вышивать", "Приготовить десерт"]
 
 def addTask(todo, day, task):
   if not (day in todo):
@@ -20,7 +21,8 @@ while not endOfProgramm:
   if command == "help":
     print(HELP)
   elif command == "random":
-    todo = addTask(todo, "Today", randomTask)
+    task = random.choice(randomTasks)
+    todo = addTask(todo, "Today", task)
   elif command == "show":
     day = input("Введите дату для отображения списка задач: ")
     if day in todo:
